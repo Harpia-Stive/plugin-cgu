@@ -526,7 +526,7 @@ public class BeneficiosResource {
 
         ObjectMapper objectMapper = new ObjectMapper();
 
-        if (request != null) {
+        if (StringUtils.isNotBlank(request)){
 
             objectMapper.configure(Feature.ALLOW_COMMENTS, true);
             Parametros param = objectMapper.readValue(request, Parametros.class);
@@ -539,9 +539,17 @@ public class BeneficiosResource {
                 nis = Util.getNumerics(param.getNis());
             }
 
-            if (mesAno == null) {
+            if (StringUtils.isBlank(mesAno)){
                 mesAno = param.getMesAno();
             }
+        }
+        
+        
+        /*
+            Se o mesAno nao for informado utilizara como padrao 10/2021 (ultimo pagamento do beneficio, foi substituido pelo auxilio Brasil)
+        */
+        if (StringUtils.isBlank(mesAno)){
+            mesAno = ContratoApi.MES_ANO_REF_BOLSAFAMILIA;
         }
 
         Integer anoMes = Util.trataMesAno(mesAno);
@@ -566,7 +574,7 @@ public class BeneficiosResource {
 
             try {
 
-                bolsasUsingGET = beneficiosApi.bolsaFamiliaDisponivelPorCpfOuNisUsingGETWithHttpInfo(chaveApiDados, codigo, 1, anoMes, null);
+                bolsasUsingGET = beneficiosApi.bolsaFamiliaDisponivelPorCpfOuNisUsingGETWithHttpInfo(chaveApiDados, codigo, 1, null, anoMes);
 
                 if (!bolsasUsingGET.getData().isEmpty()) {
                     bolsas.addAll(bolsasUsingGET.getData());
@@ -645,6 +653,10 @@ public class BeneficiosResource {
                 mesAno = param.getMesAno();
             }
         }
+        
+        if (StringUtils.isBlank(mesAno)){
+            //mesAno = ContratoApi.MES_ANO_REF_BOLSAFAMILIA;
+        }
 
         Integer anoMes = Util.trataMesAno(mesAno);
 
@@ -668,7 +680,7 @@ public class BeneficiosResource {
 
             try {
 
-                bolsasUsingGET = beneficiosApi.novoBolsaFamiliaSacadoPorNisUsingGETWithHttpInfo(chaveApiDados, nis, pagina, anoMes, null);
+                bolsasUsingGET = beneficiosApi.novoBolsaFamiliaSacadoPorNisUsingGETWithHttpInfo(chaveApiDados, nis, pagina, null, anoMes);
 
                 if (!bolsasUsingGET.getData().isEmpty()) {
                     bolsas.addAll(bolsasUsingGET.getData());

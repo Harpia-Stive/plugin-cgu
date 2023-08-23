@@ -19,7 +19,7 @@ import io.swagger.annotations.ApiOperation;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Timestamp;
-import java.time.LocalDate;
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -103,8 +103,8 @@ public class DespesasResource {
 
         }
 
-        if (ano == null) {
-            ano = LocalDate.now().getYear() - 1;
+         if (ano != null) {
+            ano = Year.now().getValue() -1;
         }
 
         String cpfCnpj = null;
@@ -118,8 +118,8 @@ public class DespesasResource {
         int fase = 1;//Empenho
         int ordenacaoResultado = 4;
 
-        despesasPblicasApi.getApiClient().setConnectTimeout(30 * 1000);
-        despesasPblicasApi.getApiClient().setReadTimeout(30 * 1000);
+        despesasPblicasApi.getApiClient().setConnectTimeout(50 * 1000);
+        despesasPblicasApi.getApiClient().setReadTimeout(50 * 1000);
 
         int pagina = 1;
 
@@ -287,8 +287,8 @@ public class DespesasResource {
 
         }
 
-        if (ano == null) {
-            ano = LocalDate.now().getYear() - 1;
+        if (ano != null) {
+            ano = Year.now().getValue() -1;
         }
 
         String cpfCnpj = null;
@@ -302,8 +302,8 @@ public class DespesasResource {
         int fase = 2;//Liquidação
         int ordenacaoResultado = 4; //Data mais recente
 
-        despesasPblicasApi.getApiClient().setConnectTimeout(30 * 1000);
-        despesasPblicasApi.getApiClient().setReadTimeout(30 * 1000);
+        despesasPblicasApi.getApiClient().setConnectTimeout(50 * 1000);
+        despesasPblicasApi.getApiClient().setReadTimeout(50 * 1000);
 
         int pagina = 1;
 
@@ -470,8 +470,8 @@ public class DespesasResource {
 
         }
 
-        if (ano == null) {
-            ano = LocalDate.now().getYear() - 1;
+         if (ano != null) {
+            ano = Year.now().getValue() -1;
         }
 
         String cpfCnpj = null;
@@ -485,8 +485,8 @@ public class DespesasResource {
         int fase = 3;//Pagamento
         int ordenacaoResultado = 4;
 
-        despesasPblicasApi.getApiClient().setConnectTimeout(30 * 1000);
-        despesasPblicasApi.getApiClient().setReadTimeout(30 * 1000);
+        despesasPblicasApi.getApiClient().setConnectTimeout(50 * 1000);
+        despesasPblicasApi.getApiClient().setReadTimeout(50 * 1000);
 
         int pagina = 1;
 

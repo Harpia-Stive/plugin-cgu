@@ -49,7 +49,7 @@ public class PepResource {
     private PepImplContrato pepImplContrato = new PepImplContrato();
 
     @ApiOperation(value = "Consulta Peps do Executivo Federal")
-    @RequestMapping(value = "govbr/peps/busca", method = RequestMethod.POST, consumes = {"text/html", "application/x-www-form-urlencoded", "application/json"})
+    @RequestMapping(value = ContratoApi.CONSULTA_PEP_URL, method = RequestMethod.POST, consumes = {"text/html", "application/x-www-form-urlencoded", "application/json"})
     public ResponseEntity<Object> consultaPep(
             @RequestParam(value = "cpf", required = false) String cpf,
             @RequestParam(value = "nome", required = false) String nome,

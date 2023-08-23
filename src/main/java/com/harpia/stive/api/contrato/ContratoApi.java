@@ -152,6 +152,9 @@ public class ContratoApi {
     public static final String CONSULTA_NOVOBOLSAFAM_DESC = "Pesquisa as parcelas disponibilizadas aos favorecidos do programa Novo Bolsa Família";
 
     public static final int VERSAO_PROTOCOLO = 1;
+    
+    
+    public static final String MES_ANO_REF_BOLSAFAMILIA = "10/2021";
 
     //#Verificar nome consulta antes do nome da fontes de dados: govbr/consulta
     public Contrato contratoApi() {
@@ -600,7 +603,7 @@ public class ContratoApi {
         List<Filtro> filtros = new ArrayList<>();
 
         List<Atributo> atributos = new ArrayList<>();
-        atributos.add(addAtributo("CNPJ", "cnpj", 1, ""));
+        atributos.add(addAtributo("CNPJ", "cnpj", 3, ""));
         filtros.add(addFiltro(CONSULTA_NOTA_ENDPOINT, "Digite o CNPJ da empresa que deseja pesquisar", atributos));
 
         addConsulta(CONSULTA_NOTA_NOME,

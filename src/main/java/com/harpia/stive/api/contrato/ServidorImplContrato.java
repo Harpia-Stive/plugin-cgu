@@ -60,6 +60,7 @@ public class ServidorImplContrato {
 
             campos.add(adicionaCampo("Tipo Pessoa", "tipopessoa", 2, a.getServidor().getPessoa().getTipo(), "4"));
             campos.add(adicionaCampo("CNPJ", "cnpj", 3, a.getServidor().getPessoa().getCnpjFormatado(), "4"));
+            campos.add(adicionaCampo("Situação", "situacao", 2, a.getServidor().getSituacao(), "4"));
             campos.add(adicionaCampo("Razão Social", "razaosocial", 4, a.getServidor().getPessoa().getRazaoSocialReceita(), "6"));
             campos.add(adicionaCampo("Nome Fantasia", "nomefantasia", 4, a.getServidor().getPessoa().getNomeFantasiaReceita(), "6"));
 
@@ -67,6 +68,7 @@ public class ServidorImplContrato {
 
             campos.add(adicionaCampo("Cpf", "cpf", 1, cpf, "4"));
             campos.add(adicionaCampo("Nome", "nome", 4, a.getServidor().getPessoa().getNome(), "12"));
+            campos.add(adicionaCampo("Situação", "situacao", 2, a.getServidor().getSituacao(), "4"));
             campos.add(adicionaCampo("CPF - Servidor Inativo Instituidor Pensão", "cpfservinatinstuidorpensao", 1, a.getServidor().getServidorInativoInstuidorPensao().getCpfFormatado(), "4"));
             campos.add(adicionaCampo("NOME - Servidor Inativo Instituidor Pensão", "nomeservinatinstuidorpensao", 4, a.getServidor().getServidorInativoInstuidorPensao().getNome(), "4"));
             campos.add(adicionaCampo("CPF Pensionista/Representante", "pensionistarepresentantecpf", 1, a.getServidor().getPensionistaRepresentante().getCpfFormatado(), "4"));
@@ -74,7 +76,6 @@ public class ServidorImplContrato {
 
         }
 
-        campos.add(adicionaCampo("Situação", "situacao", 2, a.getServidor().getSituacao(), "4"));
         campos.add(adicionaCampo("Tipo Servidor", "tiposervidor", 2, a.getServidor().getTipoServidor(), "4"));
         campos.add(adicionaCampo("Afastado", "afastado", 2, a.getServidor().getFlagAfastado(), "4"));
         campos.add(adicionaCampo("Função", "funcao", 2, a.getServidor().getFuncao().getDescricaoFuncaoCargo(), "4"));
@@ -176,7 +177,7 @@ public class ServidorImplContrato {
 
         Map<String, Object> mapPayload = new HashMap<>();
 
-        mapPayload.put("idServidor", idServidor);
+        mapPayload.put("idServidorAposentadoPensionista", idServidor);
         mapPayload.put("cpf", cpf);
         mapPayload.put("mesAno", mesAno);
         mapPayload.put("busca", "rubrica");

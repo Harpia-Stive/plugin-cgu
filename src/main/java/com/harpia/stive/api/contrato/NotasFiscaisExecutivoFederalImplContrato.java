@@ -132,9 +132,7 @@ public class NotasFiscaisExecutivoFederalImplContrato {
         botao.setPayload(mapPayload);
 
         botoes.add(botao);
-
         //
-        botoes.add(botao);
 
         resultado.setBotoes(botoes);
 

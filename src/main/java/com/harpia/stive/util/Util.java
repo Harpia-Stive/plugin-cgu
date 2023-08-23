@@ -29,6 +29,7 @@ import java.util.List;
 import java.util.TimeZone;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -64,6 +65,7 @@ public class Util {
     public static String formataData(String data) {
 
         String retorno = null;
+        String retornoCompl = null;
 
         if (data == null) {
             return null;
@@ -73,9 +75,10 @@ public class Util {
             data = data.replace("T", " ");
             String[] partes = data.split(" ");
 
-            if (partes[0] != null && !partes[0].trim().equals("")) {
-                if (partes != null && partes.length > 1 && !partes[1].trim().equals("")) {
-                    retorno = partes[0] + " " + partes[1].substring(0, 8);
+            if (StringUtils.isNotBlank(partes[0])) {
+                if (partes != null && partes.length > 1 && StringUtils.isNotBlank(partes[1])) {
+                    retorno = partes[0];
+                    retornoCompl = partes[1].substring(0, 8);
                 } else {
                     retorno = partes[0];
                 }
@@ -138,8 +141,12 @@ public class Util {
                 retorno = localDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
             }
         }
+        
+        if (StringUtils.isNotBlank(retornoCompl)){
+            retorno = retorno + " " + retornoCompl;
+        }
 
-        return retorno;
+        return retorno ;
     }
 
     public static Date getDate(String data) {
