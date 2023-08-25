@@ -51,7 +51,6 @@ public class ServidorResource {
     private ServidorImplContrato servidorImplContrato = new ServidorImplContrato();
 
     @ApiOperation(value = "Consulta Servidor do Executivo Federal")
-    //"consulta/govbr/govbr_servidores/busca"
     @RequestMapping(value = ContratoApi.CONSULTA_SERVIDORES_URL, method = RequestMethod.POST, consumes = {"text/html", "application/x-www-form-urlencoded", "application/json"})
     public ResponseEntity<Object> consultaServidor(
             @RequestParam(value = "cpf", required = false) String cpf,

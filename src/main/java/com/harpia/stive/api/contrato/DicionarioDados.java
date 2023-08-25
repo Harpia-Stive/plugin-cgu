@@ -5,10 +5,7 @@ import com.harpia.stive.api.model.Timeline;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 
-/**
- *
- * @author labldmac
- */
+
 public class DicionarioDados {
 
     public static Campo adicionaCampo(String rotulo, String chave, int tipo, Object valor, String largura) {
