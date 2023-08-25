@@ -85,3 +85,11 @@ replay_pid*
 /dist/
 /nbdist/
 /.nb-gradle/
+
+
+.DS_Store
+mvnw
+mvnw.cmd
+nb-configuration.xml 
+
+
