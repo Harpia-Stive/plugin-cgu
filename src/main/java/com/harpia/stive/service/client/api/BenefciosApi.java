@@ -9,6 +9,8 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+
+
 package com.harpia.stive.service.client.api;
 
 import com.google.gson.reflect.TypeToken;

@@ -654,11 +654,13 @@ public class BeneficiosResource {
             }
         }
         
-        if (StringUtils.isBlank(mesAno)){
-            //mesAno = ContratoApi.MES_ANO_REF_BOLSAFAMILIA;
+        Integer anoMes = null;
+        
+        //Ano mes opcional
+        if (StringUtils.isNotBlank(mesAno)){
+             anoMes = Util.trataMesAno(mesAno);
         }
 
-        Integer anoMes = Util.trataMesAno(mesAno);
 
         String codigo = null;
 
