@@ -138,7 +138,7 @@ public class Util {
                 retorno = localDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
             }
         }
-        
+
         if (StringUtils.isNotBlank(retornoCompl)){
             retorno = retorno + " " + retornoCompl;
         }
@@ -161,7 +161,6 @@ public class Util {
     }
 
     /**
-     *
      * @param uma data no formato dd/MM/yyyy
      * @return the number of milliseconds since January 1, 1970, 00:00:00 GMT
      * represented by this date.
@@ -170,7 +169,7 @@ public class Util {
     public static Long getTimeStamp(String data) throws ParseException {
 
         Long ret = null;
-        
+
         if (data == null)
             return null;
 
@@ -214,7 +213,7 @@ public class Util {
         SimpleDateFormat dt2 = new SimpleDateFormat("dd/MM/yyyy");
         ret = dt2.parse(data).getTime();
 
-        return ret;
+        return ret/1000;
     }
 
     public static String textfromHtml(String htmlText) {

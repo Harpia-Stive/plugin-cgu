@@ -68,7 +68,7 @@ public class DicionarioDados {
     public static Timeline adicionaTimeLine(Long timestamp, String descricao) {
         
          Timeline line = new Timeline();
-         line.setTimestamp(timestamp);
+         line.setTimestamp(timestamp) ;
          line.setDescricao(descricao);
          
          return line;

@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  java-app:
+    image: openjdk:22-jdk-slim
+    volumes:
+      - type: bind
+        source: .
+        target: /app
+    command: ["java", "-jar", "/app/target/transparencia-gov-br-1.0.jar"]
+    ports:
+      - published: 9090
+        target: 9090
+    restart: unless-stopped

@@ -79,34 +79,34 @@ public class PepImplContrato {
         
         if (currentDate.getTime() > Util.getTimeStamp(a.getDtInicioExercicio())){
             
-            timeline.add(adicionaTimeLine(Util.getTimeStamp(a.getDtInicioExercicio()), 
+            timeline.add(adicionaTimeLine(Util.getTimeStamp(a.getDtInicioExercicio().toString()),
                     a.getNome().trim() + " iniciou exercício da função de " + a.getDescricaoFuncao().trim() + " tornando-se Exposto Politicamente"));
         }else{
             
-            timeline.add(adicionaTimeLine(Util.getTimeStamp(a.getDtInicioExercicio()), 
+            timeline.add(adicionaTimeLine(Util.getTimeStamp(a.getDtInicioExercicio().toString()),
                     a.getNome().trim() + " iniciará exercício da função de " + a.getDescricaoFuncao().trim() + " tornando-se Exposto Politicamente"));
         }
         
         //
         if (currentDate.getTime() > Util.getTimeStamp(a.getDtFimExercicio())){
             
-            timeline.add(adicionaTimeLine(Util.getTimeStamp(a.getDtFimExercicio()), 
+            timeline.add(adicionaTimeLine(Util.getTimeStamp(a.getDtFimExercicio().toString()),
                 a.getNome().trim() + " finalizou o exercício da função de " + a.getDescricaoFuncao().trim()));
         }else{
              
-            timeline.add(adicionaTimeLine(Util.getTimeStamp(a.getDtFimExercicio()), 
+            timeline.add(adicionaTimeLine(Util.getTimeStamp(a.getDtFimExercicio().toString()),
                 a.getNome().trim() + " finalizará o exercício da função de " + a.getDescricaoFuncao().trim()));
         }
         
         //
         if (currentDate.getTime() > Util.getTimeStamp(a.getDtFimCarencia())){
         
-            timeline.add(adicionaTimeLine(Util.getTimeStamp(a.getDtFimCarencia()), 
+            timeline.add(adicionaTimeLine(Util.getTimeStamp(a.getDtFimCarencia().toString()),
                 a.getNome().trim() + " Finalizou a carência do tempo de Pessoa Exposta Politicamente"));
 
         }else{
             
-            timeline.add(adicionaTimeLine(Util.getTimeStamp(a.getDtFimCarencia()), 
+            timeline.add(adicionaTimeLine(Util.getTimeStamp(a.getDtFimCarencia().toString()),
                 a.getNome().trim() + " Finalizará a carência do tempo de Pessoa Exposta Politicamente"));
         }
         
