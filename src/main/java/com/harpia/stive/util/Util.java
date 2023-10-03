@@ -170,8 +170,8 @@ public class Util {
 
         Long ret = null;
 
-        if (data == null)
-            return null;
+//        if (data == null)
+//            return null;
 
         boolean ini4 = NumberUtils.isDigits(data.substring(0, 4));
         boolean ini2 = NumberUtils.isDigits(data.substring(0, 2));

@@ -128,7 +128,7 @@ public class SancoesImplContrato {
         resultado = new Resultado();
 
         resultado.setDocumento("Acordo Leniência");
-        resultado.setReferencia(x.toString());
+        resultado.setReferencia(x.toString() + "I");
         x++;
 
         if (s == null) {
