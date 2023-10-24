@@ -123,16 +123,6 @@ public class DespesasImplContrato {
             mapPayload.put("busca", "doc_relacionados");
             mapPayload.put("documento", a.getDocumento());
 
-        } else if (fase == 3) {
-
-            String referencia = com.harpia.stive.api.contrato.ContratoApi.FONTE_REF + "$" + com.harpia.stive.api.contrato.ContratoApi.CONSULTA_PAGAMENTO_REF + "$" + com.harpia.stive.api.contrato.ContratoApi.CONSULTA_PAGAMENTO_ENDPOINT;
-            botao.setReferencia(Util.md5(referencia));
-            botao.setRotulo("Documentos Relacionados");
-
-            mapPayload = new HashMap<>();
-
-            mapPayload.put("busca", "doc_relacionados");
-            mapPayload.put("documento", a.getDocumento());
         }
 
         botao.setPayload(mapPayload);
@@ -195,18 +185,7 @@ public class DespesasImplContrato {
 
         Map<String, Object> mapPayload = new HashMap<>();
 
-        if (StringUtils.isNotBlank(a.getFase()) && a.getFase().equalsIgnoreCase("Empenho")) {//empenho
-
-            String referencia = com.harpia.stive.api.contrato.ContratoApi.FONTE_REF + "$" + com.harpia.stive.api.contrato.ContratoApi.CONSULTA_EMPENHOS_REF + "$" + com.harpia.stive.api.contrato.ContratoApi.CONSULTA_EMPENHOS_ENDPOINT;
-            botao.setReferencia(Util.md5(referencia));
-            botao.setRotulo("Buscar " + a.getFase());
-
-            mapPayload = new HashMap<>();
-
-            mapPayload.put("busca", "documento");
-            mapPayload.put("documento", a.getDocumento());
-
-        } else if (StringUtils.isNotBlank(a.getFase()) && a.getFase().equalsIgnoreCase("Liquidação")) {//liquidacao
+        if (StringUtils.isNotBlank(a.getFase()) && a.getFase().equalsIgnoreCase("Liquidação")) {//liquidacao
 
             String referencia = com.harpia.stive.api.contrato.ContratoApi.FONTE_REF + "$" + com.harpia.stive.api.contrato.ContratoApi.CONSULTA_LIQUIDACAO_REF + "$" + com.harpia.stive.api.contrato.ContratoApi.CONSULTA_LIQUIDACAO_ENDPOINT;
             botao.setReferencia(Util.md5(referencia));
@@ -216,22 +195,10 @@ public class DespesasImplContrato {
 
             mapPayload.put("busca", "documento");
             mapPayload.put("documento", a.getDocumento());
+            botao.setPayload(mapPayload);
 
-        } else if (StringUtils.isNotBlank(a.getFase()) && a.getFase().equalsIgnoreCase("Pagamento")) {//pagamento
-
-            String referencia = com.harpia.stive.api.contrato.ContratoApi.FONTE_REF + "$" + com.harpia.stive.api.contrato.ContratoApi.CONSULTA_PAGAMENTO_REF + "$" + com.harpia.stive.api.contrato.ContratoApi.CONSULTA_PAGAMENTO_ENDPOINT;
-            botao.setReferencia(Util.md5(referencia));
-            botao.setRotulo("Buscar " + a.getFase());
-
-            mapPayload = new HashMap<>();
-
-            mapPayload.put("busca", "documento");
-            mapPayload.put("documento", a.getDocumento());
+            botoes.add(botao);
         }
-
-        botao.setPayload(mapPayload);
-
-        botoes.add(botao);
 
         resultado.setCampos(campos);
         resultado.setTimeline(timeline);
